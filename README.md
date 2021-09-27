@@ -1,7 +1,7 @@
 paleofetch
 ==========
 
-A rewrite of [neofetch](https://github.com/dylanaraps/neofetch) in C.
+A fork of of [paleofetch](https://github.com/ss7m/paleofetch) with some christmas decorations
 Currently only supports Linux and Xorg.
 
 
