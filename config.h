@@ -6,7 +6,7 @@
    /* name            function                 cached */\
     { "",             get_title,               false }, \
     { "",             get_bar,                 false }, \
-    { "Days to Christmas:",get_daystochristmas,     false }, \
+    { "Days to Christmas: ",get_daystochristmas,     false }, \
     { "OS: ",         get_os,                  true  }, \
     { "Host: ",       get_host,                false  }, \
     { "Kernel: ",     get_kernel,              true  }, \
