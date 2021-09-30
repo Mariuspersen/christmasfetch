@@ -1,4 +1,4 @@
-paleofetch
+christmasfetch
 ==========
 
 A fork of of [paleofetch](https://github.com/ss7m/paleofetch) with some christmas decorations
@@ -77,6 +77,7 @@ which function paleofetch will call display. Current available getter functions 
 * `get_gpu1`, `get_gpu2`: Print the GPU on your system. If you don't have both integrated graphics and an external GPU, `get_gpu2` will likely be blank
 * `get_gpu`: (Tries to) print your current GPU
 * `get_colors1`, `get_colors2`: Prints the colors of your terminal
+* `get_daystochristmas`, well you can take a guess at what it does
 
 To include a blank line between entries, put `SPACER \` between the two lines
 you want to separate.
