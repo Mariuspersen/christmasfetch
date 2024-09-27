@@ -20,9 +20,10 @@ static char *get_title(),
             *get_disk_usage_home(),
             *get_colors1(),
             *get_colors2(),
-            *get_daystochristmas(),
+            *get_christmas(),
             *spacer();
-static int getDayoftheYear();
+
+static int getDayoftheYear(unsigned int year, unsigned int month, unsigned int);
 
 #define SPACER {"", spacer, false},
 #define REMOVE(A) { (A), NULL, sizeof(A) - 1 , 0 }
