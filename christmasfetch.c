@@ -210,27 +210,14 @@ static char *get_os()
     snprintf(os, BUF_SIZE, "%s %s", name, uname_info.machine);
     free(name);
 #elif _WIN32
-    DWORD dwVersion = 0;
-    DWORD dwMajorVersion = 0;
-    DWORD dwMinorVersion = 0;
-    DWORD dwBuild = 0;
+    OSVERSIONINFOA osinfo = { 0 };
+    osinfo.dwOSVersionInfoSize = sizeof(osinfo);
+    
+    if(GetVersionExA(&osinfo)) {
+        snprintf(os, BUF_SIZE, "Windows %lu.%lu (%lu) %s",osinfo.dwMajorVersion, osinfo.dwMinorVersion, osinfo.dwBuildNumber,osinfo.szCSDVersion);
+    }
 
-    dwVersion = GetVersion();
 
-    // Get the Windows version.
-
-    dwMajorVersion = (DWORD)(LOBYTE(LOWORD(dwVersion)));
-    dwMinorVersion = (DWORD)(HIBYTE(LOWORD(dwVersion)));
-
-    // Get the build number.
-
-    if (dwVersion < 0x80000000)
-        dwBuild = (DWORD)(HIWORD(dwVersion));
-
-    snprintf(os, BUF_SIZE, "Windows %lu.%lu (%lu)",
-             dwMajorVersion,
-             dwMinorVersion,
-             dwBuild);
 #endif
     return os;
 }
@@ -1001,6 +988,8 @@ char *get_value(struct conf c, int read_cache, char *cache_data)
     }
 #elif _WIN32
 #endif
+    (void)read_cache;
+    (void)cache_data;
     value = c.function();
     return value;
 }
